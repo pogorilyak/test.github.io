@@ -1,0 +1,158 @@
+.ar-right {
+  $size: .6rem;
+  display: inline-block;
+  width: $size;
+  height: $size;
+  border: {
+    width: .1rem .1rem 0 0;
+    style: solid;
+    color: #7f8fa4;
+  }
+  transform: rotate(45deg);
+
+  &.blue {
+    border-color: #00aeef;
+  }
+}
+
+.content {
+  background-color: #eff3f6;
+  padding: 190px 10px 190px 74px;
+  min-height: 100vh;
+}
+
+.content-block {
+  margin: 0 19px;
+}
+
+.content-title {
+  margin-bottom: 23px;
+}
+
+.breadcrumbs-list {
+  text-transform: uppercase;
+
+  .breadcrumb-item {
+    color: #00aeef;
+
+    &:last-child {
+      color: #7f8fa4;
+    }
+
+    + .breadcrumb-item {
+      &:before {
+        @extend .ar-right;
+        content: '';
+        margin: 0 8px;
+      }
+    }
+  }
+
+  .breadcrumb-link {
+
+  }
+}
+
+.card {
+  display: inline-block;
+  padding: 16px 32px;
+  border: solid 1px #d3d8e0;
+  border-radius: 4px;
+  background-color: #fff;
+
+  &.slim {
+    padding: 10px;
+
+    .avatar {
+      margin-right: 10px;
+    }
+
+    .card-actions {
+      display: flex;
+      align-items: center;
+
+      .counter {
+        margin-right: 12px;
+      }
+    }
+  }
+
+  &.card-gray {
+    background-color: #e6eaee;
+  }
+
+  .card-counter {
+
+    &.rounded {
+
+    }
+  }
+}
+
+.avatar {
+  object-fit: contain;
+  overflow: hidden;
+
+  img {
+    border-radius: 4px;
+    border: solid 1px #eff3f6;
+  }
+
+  &.av-medium {
+    $size: 4.4rem;
+    width: $size;
+    height: $size;
+  }
+}
+
+.counter {
+  $size: 2.6rem;
+  width: $size;
+  height: $size;
+  line-height: $size;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+
+  &.ct-rounded {
+    border-radius: 50%;
+  }
+  
+  &.ct-gray {
+    background-color: #eff3f6;
+    color: #425363;
+  }
+}
+
+.flex-row,
+.flex-col {
+  display: flex;
+
+  .no-shrink {
+    flex-shrink: 0;
+  }
+
+  .is-growed {
+    flex-grow: 1;
+  }
+
+  .to-right {
+    margin-left: auto;
+  }
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  &.row-cennter {
+    align-items: center;
+  }
+}
+
+.flex-col {
+  &.col-cennter {
+    align-items: center;
+  }
+}

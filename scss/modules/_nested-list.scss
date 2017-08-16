@@ -1,0 +1,102 @@
+.nested-list-wrap {
+
+  .nested-list {
+
+    .list-item {
+      position: relative;
+      z-index: 2;
+    }
+
+    .item-nested {
+
+    }
+
+    .list-toggler {
+
+    }
+  }
+}
+
+.item-nested {
+  $item-margin: 5.2rem;
+  position: relative;
+  z-index: 1;
+  padding-left: $item-margin;
+
+  .nested-list {
+    $line-thickness: .2rem; //must be an even number
+    $line-width: 4rem;
+    padding: 5px 0;
+
+    .list-item {
+      $item-margin: .5rem;
+      position: relative;
+      margin: $item-margin 0;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: calc(50% - #{$line-thickness / 2});
+        right: 100%;
+        height: $line-thickness;
+        width: $line-width;
+        background-color: #d3d8e0;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: calc(-50% + #{($line-thickness / 2) - ($item-margin * 2)});
+        right: calc(100% + #{$line-width});
+        height: calc(100% + #{$item-margin * 2});
+        width: $line-thickness;
+        background-color: #d3d8e0;
+      }
+    }
+  }
+}
+
+.list-toggler {
+  $size: 1.6rem; // must be an even number
+  $border-width: .2rem; // must be an even number
+  position: relative;
+  width: $size;
+  height: $size;
+  border: $border-width solid #aeb6c5;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 50%;
+
+  span {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: $border-width;
+      width: $size - $border-width * 4;
+      height: $border-width;
+      background-color: #aeb6c5;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.is-opened {
+    border-color: #1a91eb;
+    span {
+      &:before {
+        background-color: #1a91eb;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: $border-width;
+        left: 50%;
+        height: $size - $border-width * 4;
+        width: $border-width;
+        background-color: #1a91eb;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
